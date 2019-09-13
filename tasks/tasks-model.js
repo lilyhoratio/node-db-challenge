@@ -34,7 +34,9 @@ function findTaskById(id) {
 function findTasksByProjectId(id) {
   return db("tasks")
     .where("project_id", id)
-    .then(task => mappers.cleanResource(task));
+    .then(task => {
+      mappers.cleanResource(task);
+    });
 }
 
 function insertTask(task) {
