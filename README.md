@@ -40,11 +40,11 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [x] Explain the difference between `Relational Databases` and `SQL`.
 
-A relational database is a database in which data is stored in a tabular format (e.g. an Excel table). Relationships between each table can be modeled using what is called primary keys and foreign keys.
+A relational database is a database in which data is stored in a tabular format (e.g. an Excel table). Relationships between each table can be modeled using what are called primary keys and foreign keys. SQL - which stands for Structured Query Language - is the language used to query the database. It can be used for CRUD operations on the DB (C = INSERT, R = SELECT, U = UPDATE, D = DELETE).
 
 - [x] Why do tables need a `primary key`?
 
-Tables need a primary key in order to assign a unique identifier to each row of data. PKs should not refer to anything that is changeable information about that entity (e.g. a person's name), but should rather be unique to that entity (e.g. a car's VIN).
+Tables need a primary key in order to assign a unique identifier to each row of data. PKs should not refer to anything about that entity that might be changeable information (e.g. a person's name), but should be unique to that entity (e.g. a car's VIN). The primary key can be referenced by other tables as a foreign key to indicate some sort of relationship between the two entities.
 
 - [x] What is the name given to a table column that references the primary key on another table.
 

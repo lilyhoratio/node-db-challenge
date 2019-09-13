@@ -62,11 +62,8 @@ async function findProjectIdTasks(id) {
       // return db("tasks")
       //   .where("project_id", project.id)
       //   .then(tasks => {
-      //     console.log("TASKS!", tasks);
       //     const cleanedTasks = tasks.map(task => mappers.cleanResource(task));
-
       //     projectWithTasks.cleanedTasks = cleanedTasks;
-
       //     return projectWithTasks;
       //   });
     })
