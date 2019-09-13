@@ -1,5 +1,5 @@
 module.exports = {
-  cleanProject
+  cleanResource
 };
 
 function intToBoolean(int) {
@@ -8,11 +8,12 @@ function intToBoolean(int) {
   // !!int
 }
 
-function cleanProject(project) {
-  const cleanedProject = {
-    ...project,
-    completed: intToBoolean(project.completed)
+function cleanResource(resource) {
+  console.log(resource);
+  const cleanedResource = {
+    ...resource,
+    completed: intToBoolean(resource.completed)
   };
 
-  return cleanedProject;
+  return cleanedResource;
 }

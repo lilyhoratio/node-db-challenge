@@ -10,7 +10,7 @@ module.exports = {
 function findProjects() {
   return db("projects").then(projects => {
     const cleanedProjects = projects.map(project => {
-      return mappers.cleanProject(project);
+      return mappers.cleanResource(project);
     });
     return cleanedProjects;
   });
@@ -20,7 +20,7 @@ function findProjectById(id) {
   return db("projects")
     .where("id", id)
     .first()
-    .then(project => mappers.cleanProject(project));
+    .then(project => mappers.cleanResource(project));
 }
 
 function insertProject(project) {
