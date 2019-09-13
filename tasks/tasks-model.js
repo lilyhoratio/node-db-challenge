@@ -4,12 +4,13 @@ const mappers = require("../data/helpers/mappers.js");
 module.exports = {
   findTasks,
   findTaskById,
-  insertTask
+  insertTask,
+  findTasksByProjectId
 };
 
 function findTasks() {
   return db("tasks as T")
-    .innerJoin("projects as P", "T.project_id", "=", "P.id")
+    .innerJoin("projects as P", { "T.project_id": "P.id" })
     .select(
       "P.name as project_name",
       "P.description as project_description",
@@ -27,6 +28,12 @@ function findTaskById(id) {
   return db("tasks")
     .where("id", id)
     .first()
+    .then(task => mappers.cleanResource(task));
+}
+
+function findTasksByProjectId(id) {
+  return db("tasks")
+    .where("project_id", id)
     .then(task => mappers.cleanResource(task));
 }
 
