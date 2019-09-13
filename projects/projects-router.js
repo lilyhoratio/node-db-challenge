@@ -13,4 +13,29 @@ router.get(`/`, (req, res) => {
     });
 });
 
+router.get(`/:id`, (req, res) => {
+  const projectId = req.params.id;
+  Projects.findProjectById(projectId)
+    .then(project => {
+      res.status(200).json(project);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: "Error retrieving projects" });
+    });
+});
+
+router.post(`/`, (req, res) => {
+  // input validation - on what is required & types
+  const project = req.body;
+  Projects.insertProject(project)
+    .then(project => {
+      res.status(201).json(project);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: "Error adding project" });
+    });
+});
+
 module.exports = router;

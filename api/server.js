@@ -14,7 +14,7 @@ server.get(`/`, (req, res) => {
 // ROUTES
 // ----------------------------------------------------------------
 server.use(`/api/projects`, projectsRouter);
-// server.use(`/api/resources`, resourcesRouter);
+server.use(`/api/resources`, resourcesRouter);
 // server.use(`/api/tasks`, tasksRouter);
 
 module.exports = server;
