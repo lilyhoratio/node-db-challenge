@@ -51,26 +51,24 @@ async function findProjectIdTasks(id) {
     .first()
     .then(project => {
       // find tasks
-
-      // why isn't this working with helper function?
-      // const projectWithTasks = { ...project };
-      // return Tasks.findTasksByProjectId(id).then(tasks => {
-      //   projectWithTasks.tasks = tasks;
-      //   return projectWithTasks;
-      // });
+      const projectWithTasks = { ...project };
+      return Tasks.findTasksByProjectId(id).then(tasks => {
+        projectWithTasks.tasks = tasks;
+        return projectWithTasks;
+      });
 
       // this works
-      const projectWithTasks = { ...project };
-      return db("tasks")
-        .where("project_id", project.id)
-        .then(tasks => {
-          console.log("TASKS!", tasks);
-          const cleanedTasks = tasks.map(task => mappers.cleanResource(task));
+      // const projectWithTasks = { ...project };
+      // return db("tasks")
+      //   .where("project_id", project.id)
+      //   .then(tasks => {
+      //     console.log("TASKS!", tasks);
+      //     const cleanedTasks = tasks.map(task => mappers.cleanResource(task));
 
-          projectWithTasks.cleanedTasks = cleanedTasks;
+      //     projectWithTasks.cleanedTasks = cleanedTasks;
 
-          return projectWithTasks;
-        });
+      //     return projectWithTasks;
+      //   });
     })
     .then(project => mappers.cleanResource(project)); // clean after
 }
