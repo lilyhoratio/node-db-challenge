@@ -38,13 +38,21 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Explain the difference between `Relational Databases` and `SQL`.
+- [x] Explain the difference between `Relational Databases` and `SQL`.
 
-- [ ] Why do tables need a `primary key`?
+A relational database is a database in which data is stored in a tabular format (e.g. an Excel table). Relationships between each table can be modeled using what are called primary keys and foreign keys. SQL - which stands for Structured Query Language - is the language used to query the database. It can be used for CRUD operations on the DB (C = INSERT, R = SELECT, U = UPDATE, D = DELETE).
 
-- [ ] What is the name given to a table column that references the primary key on another table.
+- [x] Why do tables need a `primary key`?
 
-- [ ] What do we need in order to have a _many to many_ relationship between two tables.
+Tables need a primary key in order to assign a unique identifier to each row of data. PKs should not refer to anything about that entity that might be changeable information (e.g. a person's name), but should be unique to that entity (e.g. a car's VIN). The primary key can be referenced by other tables as a foreign key to indicate some sort of relationship between the two entities.
+
+- [x] What is the name given to a table column that references the primary key on another table.
+
+Foreign key.
+
+- [x] What do we need in order to have a _many to many_ relationship between two tables.
+
+We need an intermediary table which stores foreign keys for both tables, in order to connect the id of one table to the id of the other table.
 
 ## Minimum Viable Product
 
@@ -52,7 +60,7 @@ Take the steps necessary to complete the project from scratch. Start by initiali
 
 Complete the following tasks:
 
-- [ ] Design the data model and use _knex migrations_ to create the database and tables.
+- [x] Design the data model and use _knex migrations_ to create the database and tables.
 - [ ] Build an API with endpoints for:
   - [ ] adding resources.
   - [ ] retrieving a list of resources.
